@@ -11,18 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160430175228) do
+ActiveRecord::Schema.define(version: 20160430192805) do
 
   create_table "stories", force: :cascade do |t|
-    t.string   "title"
-    t.string   "overview"
-    t.text     "story"
+    t.string   "title",      null: false
+    t.string   "overview",   null: false
+    t.text     "story",      null: false
     t.string   "source"
-    t.integer  "user_id"
+    t.integer  "user_id",    null: false
     t.datetime "published"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "stories", ["published"], name: "index_stories_on_published"
+  add_index "stories", ["title"], name: "index_stories_on_title", unique: true
+  add_index "stories", ["user_id"], name: "index_stories_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

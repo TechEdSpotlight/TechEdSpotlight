@@ -4,7 +4,7 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.all
+    @stories = Story.where('published IS NOT NULL')
   end
 
   # GET /stories/1
@@ -26,6 +26,9 @@ class StoriesController < ApplicationController
   def create
     @story = Story.new(story_params)
     @story.user = current_user
+    if params[:commit] == 'Save and Publish'
+      @story.published = Time.now
+    end
 
     respond_to do |format|
       if @story.save
@@ -41,6 +44,9 @@ class StoriesController < ApplicationController
   # PATCH/PUT /stories/1
   # PATCH/PUT /stories/1.json
   def update
+    if params[:commit] == 'Save and Publish'
+      @story.published ||= Time.now
+    end
     respond_to do |format|
       if @story.update(story_params)
         format.html { redirect_to @story, notice: 'Story was successfully updated.' }

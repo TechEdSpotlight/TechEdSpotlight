@@ -4,7 +4,7 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.where('published IS NOT NULL')
+    @stories = Story.where('published IS NOT NULL').order('published desc')
   end
 
   # GET /stories/1

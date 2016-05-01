@@ -3,9 +3,7 @@ rvm:
  - "2.3.0"
 services:
   - mysql
-before_script:
-  - mysql -u root -e 'create database TechEdSpotlight_test;'
-  dist: trusty
+dist: trusty
 sudo: required
 addons:
   apt:
@@ -13,3 +11,5 @@ addons:
     - mysql-server-5.6
     - mysql-client-core-5.6
     - mysql-client-5.6
+before_script:
+  - mysql -u root -e 'create database TechEdSpotlight_test;'

@@ -26,7 +26,7 @@ group :doc do
   gem 'sdoc', '~> 0.4.0'
 end
 
-gem 'devise'
+gem 'devise', '3.5.10'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 

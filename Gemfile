@@ -1,11 +1,38 @@
 source 'https://rubygems.org'
 
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
-# Use mysql as the database for Active Record
-#gem 'mysql2', '>= 0.3.13', '< 0.5'
-gem 'sqlite3'
+
+### OpenShift Online changes:
+
+# Fix the conflict with the system 'rake':
+gem 'rake', '~> 0.9.6'
+
+# Support for databases and environment.
+# Use 'sqlite3' for testing and development and mysql and postgresql
+# for production.
+#
+# To speed up the 'git push' process you can exclude gems from bundle install:
+# For example, if you use rails + mysql, you can:
+#
+# $ rhc env set BUNDLE_WITHOUT="development test postgresql"
+#
+group :development, :test do
+  gem 'sqlite3'
+  gem 'minitest'
+  gem 'thor'
+end
+
+# Add support for the MySQL
+group :production, :mysql do
+  gem 'mysql2'
+end
+
+group :production, :postgresql do
+  gem 'pg'
+end
+
+### / OpenShift changes
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -30,6 +57,7 @@ gem 'devise', '3.5.10'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -47,6 +75,8 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
 end
 
 group :production do

@@ -26,8 +26,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  adapter: mysql2
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
   database: TechEdSpotlight_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -51,6 +51,9 @@ test:
 #
 production:
   <<: *default
-  database: TechEdSpotlight_production
-  username: TechEdSpotlight
-  password: <%= ENV['TECHEDSPOTLIGHT_DATABASE_PASSWORD'] %>
+  pool: 5
+  database: <%=ENV['OPENSHIFT_APPNAME']%>
+  host: <%=ENV['$OPENSHIFT_POSTGRESQL_DB_HOST']%>
+  port: <%=ENV['$OPENSHIFT_POSTGRESQL_DB_PORT']%>
+  username: <%=ENV['OPENSHIFT_POSTGRESQL_DB_USERNAME']%>
+  password: <%=ENV['OPENSHIFT_POSTGRESQL_DB_PASSWORD']%>

@@ -22,10 +22,6 @@ group :development, :test do
   gem 'thor'
 end
 
-group :production do
-  gem 'pg'
-end
-
 ### / OpenShift changes
 
 # Use SCSS for stylesheets
@@ -66,6 +62,7 @@ gem "paperclip", "~> 5.0.0"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'ffaker'
 end
 
 group :development do

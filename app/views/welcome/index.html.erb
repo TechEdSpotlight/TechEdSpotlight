@@ -47,17 +47,17 @@
     <div class='col-md-4'>
       <h2>Most Recent</h2>
       <ul class='list-group'>
-        <li class='list-group-item'>Fix a CMOS batter problem on a laptop by mr electro in Computers</li>
-        <li class='list-group-item'>Fix a CMOS batter problem on a laptop by mr electro in Computers</li>
-        <li class='list-group-item'>Fix a CMOS batter problem on a laptop by mr electro in Computers</li>
+        <% @most_recent_stories.each do |story| %>
+          <li class='list-group-item'><%= story.title %></li>
+        <% end %>
       </ul>
     </div>
     <div class='col-md-4'>
       <h2>Most Popular</h2>
       <ul class='list-group'>
-        <li class='list-group-item'>Fix a CMOS batter problem on a laptop by mr electro in Computers</li>
-        <li class='list-group-item'>Fix a CMOS batter problem on a laptop by mr electro in Computers</li>
-        <li class='list-group-item'>Fix a CMOS batter problem on a laptop by mr electro in Computers</li>
+        <% @most_popular_stories.each do |story| %>
+          <li class='list-group-item'><%= story.title %></li>
+        <% end %>
       </ul>
     </div>
     <div class='col-md-4'>

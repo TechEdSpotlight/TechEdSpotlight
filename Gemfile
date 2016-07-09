@@ -22,10 +22,6 @@ group :development, :test do
   gem 'thor'
 end
 
-group :production do
-  gem 'pg'
-end
-
 ### / OpenShift changes
 
 # Use SCSS for stylesheets

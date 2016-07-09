@@ -48,6 +48,7 @@ gem 'devise', '3.5.10'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 
+gem "paperclip", "~> 5.0.0"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

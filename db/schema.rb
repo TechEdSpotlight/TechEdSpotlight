@@ -11,17 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160430202330) do
+ActiveRecord::Schema.define(version: 20160709160439) do
 
   create_table "stories", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.string   "overview",   null: false
-    t.text     "story",      null: false
+    t.string   "title",                   null: false
+    t.string   "overview",                null: false
+    t.text     "story",                   null: false
     t.string   "source"
-    t.integer  "user_id",    null: false
+    t.integer  "user_id",                 null: false
     t.datetime "published"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
   end
 
   add_index "stories", ["published"], name: "index_stories_on_published"

@@ -30,5 +30,10 @@
   <%= @story.published %>
 </p>
 
+<p>
+  <strong>Attachments:</strong>
+  <%= link_to @story.attachment.original_filename, @story.attachment.url %>
+</p>
+
 <%= link_to 'Edit', edit_story_path(@story) %> |
 <%= link_to 'Back', stories_path %>

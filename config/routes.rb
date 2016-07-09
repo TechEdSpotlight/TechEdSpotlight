@@ -1,23 +1,11 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
-
   devise_for :users
   resources :stories
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-#   root 'welcome#index'
-
-  devise_scope :user do
-    authenticated :user do
-      root 'stories#index', as: :authenticated_root
-    end
-
-    unauthenticated do
-      root 'devise/sessions#new', as: :unauthenticated_root
-    end
-  end
+  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -33,3 +33,8 @@ bower.json
 
 # Ignore sqlite dev db
 TechEdSpotlight_development
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

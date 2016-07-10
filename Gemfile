@@ -2,28 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.5.1'
 
-### OpenShift Online changes:
-
-# Fix the conflict with the system 'rake':
-gem 'rake', '~> 0.9.6'
-
-# Support for databases and environment.
-# Use 'sqlite3' for testing and development and mysql and postgresql
-# for production.
-#
-# To speed up the 'git push' process you can exclude gems from bundle install:
-# For example, if you use rails + mysql, you can:
-#
-# $ rhc env set BUNDLE_WITHOUT="development test postgresql"
-#
-group :development, :test do
-  gem 'sqlite3'
-  gem 'minitest'
-  gem 'thor'
-end
-
-### / OpenShift changes
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -44,7 +22,7 @@ group :doc do
   gem 'sdoc', '~> 0.4.0'
 end
 
-gem 'devise', '3.5.10'
+gem 'devise'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 
@@ -60,6 +38,7 @@ gem "paperclip", "~> 5.0.0"
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'ffaker'
@@ -68,8 +47,6 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
 end
 
 group :production do

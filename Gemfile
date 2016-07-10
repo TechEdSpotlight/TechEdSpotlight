@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'puma'
 gem 'rails', '4.2.5.1'
 
 # Use SCSS for stylesheets

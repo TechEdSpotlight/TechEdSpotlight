@@ -28,6 +28,7 @@ gem 'devise'
 gem 'acts-as-taggable-on', '~> 3.4'
 
 gem "paperclip", "~> 5.0.0"
+gem "aws-sdk"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

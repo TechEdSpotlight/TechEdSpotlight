@@ -13,4 +13,13 @@
  *= require_tree .
  *= require_self
  *= require dropzone/basic
+ *= require prettyPhoto/prettyPhoto
+ *= require isotope/css/style
+ *= require woothemes-FlexSlider/flexslider
+ *= require restart
+ *= require animate
  */
+
+.main {
+  min-height: 480px
+}

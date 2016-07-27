@@ -12,6 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 //= require dropzone
+//= require collapser
+//= require contact_form
+//= require easing
+//= require jquery.mb.YTPlayer
+//= require jquery.ui.totop
+//= require isotope/jquery.isotope
+//= require prettyPhoto/jquery.prettyPhoto
+//= require woothemes-FlexSlider/jquery.flexslider
+//= require parallax.min
+//= require snap.svg-min
+//= require wow.min
+//= require restart_theme

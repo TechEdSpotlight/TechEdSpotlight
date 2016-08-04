@@ -5,4 +5,8 @@ module LayoutHelper
     "3.3.6"
   end
 
+  def active?(path)
+    current_page?(path) ? 'active' : ''
+  end
+
 end

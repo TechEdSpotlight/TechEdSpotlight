@@ -16,43 +16,45 @@ user = User.create(
   email: 'peter@gmail.com', 
   role: 'Student',
   district: '',
-  city: Faker::Address.city,
+  city: FFaker::Address.city,
   platform: 'Mac',
-  interests: Faker::Movie.title,
-  subject: Faker::Education.major,
+  interests: FFaker::Movie.title,
+  subject: FFaker::Education.major,
   password: 'topsecret123', 
   password_confirmation: 'topsecret123'
   )
 
 10.times do
   Story.create(
-    title: Faker::DizzleIpsum.word,
-    overview: Faker::DizzleIpsum.sentence,
-    story: Faker::DizzleIpsum.paragraph,
+    title: FFaker::DizzleIpsum.word,
+    overview: FFaker::DizzleIpsum.sentence,
+    story: FFaker::DizzleIpsum.paragraph,
+    published: DateTime.now - rand * 50,
     user: user
     )
 end
 
 10.times do
   user = User.create(
-    fname: Faker::Name.first_name, 
-    lname: Faker::Name.last_name, 
-    email: Faker::Internet.email, 
+    fname: FFaker::Name.first_name, 
+    lname: FFaker::Name.last_name, 
+    email: FFaker::Internet.email, 
     role: 'Student',
     district: '',
-    city: Faker::Address.city,
+    city: FFaker::Address.city,
     platform: 'Mac',
-    interests: Faker::Movie.title,
-    subject: Faker::Education.major,
+    interests: FFaker::Movie.title,
+    subject: FFaker::Education.major,
     password: 'topsecret123', 
     password_confirmation: 'topsecret123'
     )
 
   10.times do
     Story.create(
-      title: Faker::DizzleIpsum.word,
-      overview: Faker::DizzleIpsum.sentence,
-      story: Faker::DizzleIpsum.paragraph,
+      title: FFaker::DizzleIpsum.word,
+      overview: FFaker::DizzleIpsum.sentence,
+      story: FFaker::DizzleIpsum.paragraph,
+      published: DateTime.now - rand * 50,
       user: user
       )
   end

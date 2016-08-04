@@ -1,22 +1,25 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<header>
   <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">TechEdSpotlight</a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <%= render 'users/menu/login_items.html.erb' %>
-        <%= render 'users/menu/registration_items.html.erb' %>
-      </ul>
-    </div><!--/.nav-collapse -->
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to 'TechEdSpotlight', root_path, {class: "navbar-brand"} %>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class=<%= active?(root_path)%> ><%= link_to 'Home', root_path %></li>
+          <li class=<%= active?(stories_path)%> ><%= link_to 'Stories', stories_path %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <%= render 'users/menu/login_items.html.erb' %>
+          <%= render 'users/menu/registration_items.html.erb' %>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </nav>
   </div>
-</nav>
+</header>

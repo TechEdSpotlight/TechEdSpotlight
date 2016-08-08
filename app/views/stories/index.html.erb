@@ -2,30 +2,17 @@
 
 <h1>Listing Stories</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Overview</th>
-      <th>Published</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= link_to '[+] New Story', new_story_path %>
 
-  <tbody>
-    <% @stories.each do |story| %>
-      <tr>
-        <td><%= story.title %></td>
-        <td><%= story.overview %></td>
-        <td><%= story.published.try(&:to_date) %></td>
-        <td><%= link_to 'Show', story %></td>
-        <td><%= link_to 'Edit', edit_story_path(story) %></td>
-        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% @stories.in_groups_of(3) do |row_stories| %>
+  <div class="row">
+    <% row_stories.each do |story| %>
+      <div class="col-sm-4">
+        <h3><%= link_to story.title, story %></h3>
+        <span><em><%= story.published.strftime("%B %d, %Y") %></em></span>
+        <p><%= story.overview %></p>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+<% end %>
 
-<br>
-
-<%= link_to 'New Story', new_story_path %>

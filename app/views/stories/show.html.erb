@@ -1,39 +1,33 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @story.title %></h1>
+
 <p>
-  <strong>Title:</strong>
-  <%= @story.title %>
+  <span><strong>By <%= "#{@story.user.fname} #{@story.user.lname}" %></strong></span>
+  <span><%= @story.published.strftime("%B %d, %Y") %></span>
 </p>
 
 <p>
-  <strong>Overview:</strong>
-  <%= @story.overview %>
-</p>
-
-<p>
-  <strong>Story:</strong>
   <%= @story.story %>
 </p>
 
-<p>
-  <strong>Source:</strong>
-  <%= @story.source %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @story.user_id %>
-</p>
-
-<p>
-  <strong>Published:</strong>
-  <%= @story.published %>
-</p>
+<% if @story.source %>
+  <p>
+    <strong>Source:</strong>
+    <%= @story.source %>
+  </p>
+<% end %>
 
 <p>
   <strong>Attachments:</strong>
   <%= link_to @story.attachment.original_filename, @story.attachment.url %>
 </p>
 
-<%= link_to 'Edit', edit_story_path(@story) %> |
-<%= link_to 'Back', stories_path %>
+<p>
+  <%= link_to 'Edit', edit_story_path(@story) %> |
+  <%= link_to 'Delete', @story, method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>
+
+<p>
+  <%= link_to 'Back to Stories', stories_path %>
+</p>

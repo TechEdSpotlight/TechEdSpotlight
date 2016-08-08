@@ -16,6 +16,7 @@
           <li class=<%= active?(stories_path)%> ><%= link_to 'Stories', stories_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to('Submit a Story', new_story_path)  %></li>
           <%= render 'users/menu/login_items.html.erb' %>
           <%= render 'users/menu/registration_items.html.erb' %>
         </ul>
